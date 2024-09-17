@@ -43,7 +43,7 @@ public inline fun ElementHolder.addSetAttachmentListener(crossinline block: (Hol
 public inline fun ElementHolder.addTickListener(crossinline block: () -> Unit): Unit =
     (this as ElementHolderExtensions).`moire$addTickListener` { block() }
 
-public fun ElementHolder.addVirtualPassenger(entity: Entity): Unit =
+public fun ElementHolder.addVirtualPassengerTo(entity: Entity): Unit =
     VirtualEntityUtils.addVirtualPassenger(entity, *entityIds.toIntArray())
 
 public fun ElementHolder.chunkAttachment(world: ServerWorld, pos: Vec3d): HolderAttachment =
