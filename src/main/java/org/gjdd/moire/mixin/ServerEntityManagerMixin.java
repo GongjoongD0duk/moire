@@ -19,7 +19,7 @@ public abstract class ServerEntityManagerMixin {
             return;
         }
 
-        var decorators = EntityDecorators.getDecorators$moire(entity);
+        var decorators = EntityDecorators.get(entity);
         if (decorators.isEmpty()) {
             return;
         }

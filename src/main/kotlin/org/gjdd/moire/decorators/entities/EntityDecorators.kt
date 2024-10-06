@@ -18,6 +18,7 @@ public object EntityDecorators {
 
     @Suppress("UNCHECKED_CAST")
     @JvmStatic
+    @JvmName("get")
     internal fun <T : Entity> getDecorators(entity: T) =
         (class2Decorators[entity::class] as? List<EntityDecorator<T>> ?: listOf()) +
                 (type2Decorators[entity.type] as? List<EntityDecorator<T>> ?: listOf())
