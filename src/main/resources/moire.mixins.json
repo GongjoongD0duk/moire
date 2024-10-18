@@ -2,6 +2,7 @@
   "package": "org.gjdd.moire.mixin",
   "mixins": [
     "ElementHolderMixin",
+    "LivingEntityMixin",
     "ServerEntityManagerMixin"
   ]
 }
