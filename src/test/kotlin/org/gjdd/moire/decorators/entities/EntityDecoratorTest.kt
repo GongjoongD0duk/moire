@@ -27,6 +27,6 @@ class EntityDecoratorTest : ModInitializer {
     }
 
     override fun onInitialize() {
-        EntityDecorators.register(testEntityDecorator)
+        EntityDecorators.register(CreeperEntity::class, testEntityDecorator)
     }
 }

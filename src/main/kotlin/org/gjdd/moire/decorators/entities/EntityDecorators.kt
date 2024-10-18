@@ -22,6 +22,3 @@ public object EntityDecorators {
         (class2Decorators[entity::class] as? List<EntityDecorator<T>> ?: listOf()) +
                 (type2Decorators[entity.type] as? List<EntityDecorator<T>> ?: listOf())
 }
-
-public inline fun <reified T : Entity> EntityDecorators.register(decorator: EntityDecorator<T>): Unit =
-    register(T::class, decorator)
