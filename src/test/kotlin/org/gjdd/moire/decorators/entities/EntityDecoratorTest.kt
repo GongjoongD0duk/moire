@@ -7,8 +7,8 @@ import org.gjdd.moire.elements.*
 import org.gjdd.moire.matrices.rotateLocalYDegrees
 
 class EntityDecoratorTest : ModInitializer {
-    private val testEntityDecorator = entityDecorator<CreeperEntity> {
-        elementHolder {
+    private object TestEntityDecorator : EntityDecorator<CreeperEntity> {
+        override fun decorate(context: EntityDecoratorContext<CreeperEntity>) = elementHolder {
             itemDisplayElement {
                 onTick {
                     transform {
@@ -22,11 +22,11 @@ class EntityDecoratorTest : ModInitializer {
                 ignorePositionUpdates()
             }
 
-            addVirtualPassengerTo(entity)
+            addVirtualPassengerTo(context.entity)
         }
     }
 
     override fun onInitialize() {
-        EntityDecorators.register(CreeperEntity::class, testEntityDecorator)
+        EntityDecorators.register(CreeperEntity::class, TestEntityDecorator)
     }
 }

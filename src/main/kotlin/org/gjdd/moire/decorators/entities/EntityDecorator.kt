@@ -8,8 +8,3 @@ public interface EntityDecorator<T : Entity> {
 }
 
 public data class EntityDecoratorContext<T : Entity>(public val entity: T)
-
-public fun <T : Entity> entityDecorator(block: EntityDecoratorContext<T>.() -> ElementHolder): EntityDecorator<T> =
-    object : EntityDecorator<T> {
-        override fun decorate(context: EntityDecoratorContext<T>) = context.block()
-    }

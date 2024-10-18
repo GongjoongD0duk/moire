@@ -12,8 +12,3 @@ public data class StatusEffectDecoratorContext(
     public val instance: StatusEffectInstance,
     public val entity: LivingEntity
 )
-
-public fun statusEffectDecorator(block: StatusEffectDecoratorContext.() -> ElementHolder): StatusEffectDecorator =
-    object : StatusEffectDecorator {
-        override fun decorate(context: StatusEffectDecoratorContext) = context.block()
-    }

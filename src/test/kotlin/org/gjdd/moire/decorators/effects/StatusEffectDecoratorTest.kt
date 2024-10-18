@@ -6,8 +6,8 @@ import net.minecraft.entity.effect.StatusEffects
 import org.gjdd.moire.elements.*
 
 class StatusEffectDecoratorTest : ModInitializer {
-    private val testStatusEffectDecorator = statusEffectDecorator {
-        elementHolder {
+    private object TestStatusEffectDecorator : StatusEffectDecorator {
+        override fun decorate(context: StatusEffectDecoratorContext) = elementHolder {
             blockDisplayElement {
                 transformation {
                     translateLocal(-0.5f, -0.5f, -0.5f)
@@ -18,16 +18,16 @@ class StatusEffectDecoratorTest : ModInitializer {
             }
 
             onTick {
-                if (!entity.hasStatusEffect(StatusEffects.STRENGTH)) {
+                if (!context.entity.hasStatusEffect(StatusEffects.STRENGTH)) {
                     destroy()
                 }
             }
 
-            addVirtualPassengerTo(entity)
+            addVirtualPassengerTo(context.entity)
         }
     }
 
     override fun onInitialize() {
-        StatusEffectDecorators.register(StatusEffects.STRENGTH, testStatusEffectDecorator)
+        StatusEffectDecorators.register(StatusEffects.STRENGTH, TestStatusEffectDecorator)
     }
 }
